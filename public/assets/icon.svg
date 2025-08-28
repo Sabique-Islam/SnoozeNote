@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-labelledby="title desc">
+  <rect width="100%" height="100%" rx="64" ry="64" fill="#000000" />
+
+  <g transform="translate(156,340)" fill="#ffffff">
+    <text x="0" y="0" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="700" font-size="96">Z</text>
+    <text x="90" y="-70" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="700" font-size="72">Z</text>
+    <text x="165" y="-130" font-family="Segoe UI, Roboto, Arial, sans-serif" font-weight="700" font-size="48">Z</text>
+  </g>
+</svg>
