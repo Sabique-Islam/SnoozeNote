@@ -45,7 +45,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="p-2"
             >
-              {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+              {isOpen ? <X className="w-7 h-7 text-black" /> : <Menu className="w-7 h-7 text-black" />}
             </button>
           </div>
         </div>
