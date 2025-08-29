@@ -1,4 +1,7 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { SignedIn, SignedOut } from '@clerk/nextjs';
 import Link from 'next/link';
 
 export default function Hero() {
@@ -13,11 +16,20 @@ export default function Hero() {
             Transform your fleeting dreams into lasting stories and ideas.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button size="lg" className="px-8 py-4 text-lg bg-black text-white hover:bg-gray-800 transition-colors">
-              <Link href="/info/get-started">
-                Get Started
+            <SignedOut>
+              <Link href="/sign-in">
+                <Button size="lg" className="px-8 py-4 text-lg bg-black text-white hover:bg-gray-800 transition-colors">
+                  Sign In
+                </Button>
               </Link>
-            </Button>
+            </SignedOut>
+            <SignedIn>
+              <Button size="lg" className="px-8 py-4 text-lg bg-black text-white hover:bg-gray-800 transition-colors">
+                <Link href="/info/get-started">
+                  Get Started
+                </Link>
+              </Button>
+            </SignedIn>
           </div>
         </div>
       </div>

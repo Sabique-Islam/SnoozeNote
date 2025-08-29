@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -36,9 +37,16 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button size="sm" className="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors">
-              <Link href="/info/get-started">Get Started</Link>
-            </Button>
+            <SignedOut>
+              <Link href="/sign-in">
+                <Button size="sm" className="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors">
+                  Sign In
+                </Button>
+              </Link>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
 
           <button
@@ -68,9 +76,18 @@ export default function Navbar() {
             >
               Walkthrough
             </Link>
-            <Button size="sm" className="w-full mt-4 bg-black text-white hover:bg-gray-800 transition-colors">
-              <Link href="/info/get-started">Get Started</Link>
-            </Button>
+            <SignedOut>
+              <Link href="/sign-in">
+                <Button size="sm" className="w-full mt-4 bg-black text-white hover:bg-gray-800 transition-colors">
+                  Sign In
+                </Button>
+              </Link>
+            </SignedOut>
+            <SignedIn>
+              <div className="flex justify-center mt-4">
+                <UserButton />
+              </div>
+            </SignedIn>
           </div>
         </div>
       )}
