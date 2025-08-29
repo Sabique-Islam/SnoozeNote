@@ -10,59 +10,70 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-6xl bg-white/95 backdrop-blur-sm rounded-full z-50 mx-4">
-      <div className="px-8">
+    <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-2">
             <Image 
               src="/assets/icon.svg" 
               alt="SnoozeNote" 
               width={40} 
               height={40}
-              className="w-8 h-8 filter invert"
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 filter invert"
             />
-            <span className="font-bold text-2xl text-black hidden sm:block">
+            <span className="font-bold text-lg sm:text-xl lg:text-2xl text-black">
               SnoozeNote
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-12 absolute left-1/2 transform -translate-x-1/2">
-            <Link href="/info/features" className="text-gray-600 hover:text-black transition-colors text-lg">Features</Link>
-            <Link href="/info/walkthrough" className="text-gray-600 hover:text-black transition-colors text-lg">How it Works</Link>
+          <div className="hidden md:flex flex-1 justify-center space-x-8">
+            <Link href="/info/features" className="text-gray-600 hover:text-black transition-colors text-base">
+              Features
+            </Link>
+            <Link href="/info/walkthrough" className="text-gray-600 hover:text-black transition-colors text-base">
+              Walkthrough
+            </Link>
           </div>
 
-          {/* CTA */}
           <div className="hidden md:block">
-            <Button size="lg" className="px-6 py-2">
-              Get Started
+            <Button size="sm" className="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors">
+              <Link href="/info/get-started">Get Started</Link>
             </Button>
           </div>
 
-          {/* Mobile menu */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2"
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
+          </button>
+        </div>
+      </div>
+
+      {isOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200">
+          <div className="px-4 py-4 space-y-4">
+            <Link 
+              href="/info/features" 
+              className="block text-gray-600 hover:text-black transition-colors py-2"
+              onClick={() => setIsOpen(false)}
             >
-              {isOpen ? <X className="w-7 h-7 text-black" /> : <Menu className="w-7 h-7 text-black" />}
-            </button>
+              Features
+            </Link>
+            <Link 
+              href="/info/walkthrough" 
+              className="block text-gray-600 hover:text-black transition-colors py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              Walkthrough
+            </Link>
+            <Button size="sm" className="w-full mt-4 bg-black text-white hover:bg-gray-800 transition-colors">
+              <Link href="/info/get-started">Get Started</Link>
+            </Button>
           </div>
         </div>
-
-        {/* Mobile Nav */}
-        {isOpen && (
-          <div className="md:hidden border-t border-gray-200 py-6 bg-white rounded-b-3xl">
-            <div className="flex flex-col space-y-6">
-              <Link href="/info/features" className="text-gray-600 hover:text-black transition-colors text-lg">Features</Link>
-              <Link href="/info/walkthrough" className="text-gray-600 hover:text-black transition-colors text-lg">How it Works</Link>
-              <Button size="lg" className="w-full">
-                Get Started
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
+      )}
     </nav>
   );
 }

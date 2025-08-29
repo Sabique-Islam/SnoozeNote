@@ -135,3 +135,13 @@
   background-size: 30px 30px;
   background-position: 0 0, 15px 15px;
 }
+
+html, body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: auto;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
