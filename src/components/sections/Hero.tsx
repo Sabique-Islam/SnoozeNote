@@ -25,7 +25,7 @@ export default function Hero() {
             </SignedOut>
             <SignedIn>
               <Button size="lg" className="px-8 py-4 text-lg bg-black text-white hover:bg-gray-800 transition-colors">
-                <Link href="/info/get-started">
+                <Link href="/get-started">
                   Get Started
                 </Link>
               </Button>
