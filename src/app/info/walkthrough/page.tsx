@@ -1,5 +1,6 @@
 import Footer from '@/components/ui/Footer'
 import Navbar from '@/components/ui/Navbar'
+import Walkthrough from '@/components/sections/Walkthrough'
 import React from 'react'
 
 function page() {
@@ -7,9 +8,7 @@ function page() {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-1 pt-16">
-        <div className="container mx-auto px-6 py-12">
-          <h1 className="text-4xl font-bold text-center mb-8">Walkthrough</h1>
-        </div>
+        <Walkthrough />
       </main>
       <Footer />
     </div>
